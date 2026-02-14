@@ -240,6 +240,10 @@ Promise.myAll = function (promises) {
     let count = 0;
 
     promises.forEach((p, i) => {
+    // why we use Promise.resolve(p) instead of promises[i].then()
+    // because it will throw error
+    // Because numbers are NOT promises.
+    // and Promise.resolve(x) converts ANY value into a promise.
       Promise.resolve(p).then(val => {
         result[i] = val;
         count++;
