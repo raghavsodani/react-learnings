@@ -79,7 +79,7 @@ Function.prototype.myCall = function (context, ...args) {
   context = context ?? globalThis;
 
   // temporary property
-  context.temp = this;//this === function
+  context.temp = this;// this === function that called myCall
 
   // call as a method → this === context
   const result = context.temp(...args);
